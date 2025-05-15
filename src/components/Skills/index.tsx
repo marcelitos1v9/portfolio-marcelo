@@ -1,43 +1,52 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiNodedotjs, 
+  SiTailwindcss, 
+  SiMongodb,
+  SiDocker
+} from 'react-icons/si';
 
 const skills = [
   {
     name: 'React & Next.js',
     level: 95,
-    icon: '⚛️',
-    color: 'from-blue-500 to-blue-600',
+    icon: SiReact,
+    color: 'from-primary-500 to-primary-600',
   },
   {
     name: 'TypeScript',
     level: 90,
-    icon: '📘',
-    color: 'from-blue-600 to-blue-700',
+    icon: SiTypescript,
+    color: 'from-primary-600 to-primary-700',
   },
   {
     name: 'Node.js',
     level: 85,
-    icon: '🟢',
-    color: 'from-green-500 to-green-600',
+    icon: SiNodedotjs,
+    color: 'from-secondary-500 to-secondary-600',
   },
   {
     name: 'TailwindCSS',
     level: 90,
-    icon: '🎨',
-    color: 'from-teal-500 to-teal-600',
+    icon: SiTailwindcss,
+    color: 'from-primary-400 to-primary-500',
   },
   {
     name: 'MongoDB',
     level: 80,
-    icon: '🍃',
-    color: 'from-green-600 to-green-700',
+    icon: SiMongodb,
+    color: 'from-secondary-600 to-secondary-700',
   },
   {
     name: 'Docker',
     level: 75,
-    icon: '🐳',
-    color: 'from-blue-400 to-blue-500',
+    icon: SiDocker,
+    color: 'from-primary-300 to-primary-400',
   },
 ];
 
@@ -66,7 +75,9 @@ export default function Skills() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-4 mb-2">
-                  <span className="text-2xl">{skill.icon}</span>
+                  <span className="text-2xl">
+                    <skill.icon className="w-8 h-8" />
+                  </span>
                   <span className="font-medium">{skill.name}</span>
                   <span className="ml-auto text-sm text-gray-500 dark:text-gray-400">
                     {skill.level}%

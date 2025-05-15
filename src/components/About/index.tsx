@@ -49,7 +49,7 @@ export default function About() {
             >
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 animate-pulse" />
               <Image
-                src="/seu-avatar.jpg"
+                src="/marcelo/marcelo_futurista.png"
                 alt="Seu Nome"
                 width={256}
                 height={256}
