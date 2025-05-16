@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Twitter, Mail, ChevronDown } from 'lucide-react';
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -86,6 +86,7 @@ const techStack = [
 
 export default function Hero() {
   const [particles, setParticles] = useState<Array<{startX: number, startY: number, endX: number, endY: number}>>([]);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const generateParticles = () => {
@@ -98,13 +99,27 @@ export default function Hero() {
       setParticles(newParticles);
     };
 
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsVisible(scrollPosition < 100);
+    };
+
     generateParticles();
     window.addEventListener('resize', generateParticles);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', generateParticles);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -321,6 +336,29 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll Down Button */}
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+        transition={{ duration: 0.3 }}
+        onClick={scrollToContent}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+      >
+        <span className="text-sm mb-2">Role para baixo</span>
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <ChevronDown className="w-6 h-6" />
+        </motion.div>
+      </motion.button>
     </section>
   );
 } 

@@ -14,53 +14,79 @@ import {
   SiJquery,
   SiMysql
 } from 'react-icons/si';
+import { useState } from 'react';
 
-const skills = [
-  {
-    name: 'React & Next.js',
-    level: 95,
-    icon: SiReact,
-    color: 'from-primary-500 to-primary-600',
+const skillCategories = {
+  frontend: {
+    name: 'Frontend',
+    skills: [
+      {
+        name: 'React & Next.js',
+        level: 95,
+        icon: SiReact,
+        color: 'from-primary-500 to-primary-600',
+        description: 'Desenvolvimento de interfaces modernas e responsivas com React e Next.js',
+      },
+      {
+        name: 'TypeScript',
+        level: 90,
+        icon: SiTypescript,
+        color: 'from-primary-600 to-primary-700',
+        description: 'Desenvolvimento com tipagem estática e recursos avançados do TypeScript',
+      },
+    ],
   },
-  {
-    name: 'TypeScript',
-    level: 90,
-    icon: SiTypescript,
-    color: 'from-primary-600 to-primary-700',
+  backend: {
+    name: 'Backend',
+    skills: [
+      {
+        name: 'Node.js',
+        level: 85,
+        icon: SiNodedotjs,
+        color: 'from-secondary-500 to-secondary-600',
+        description: 'Desenvolvimento de APIs RESTful e aplicações server-side com Node.js',
+      },
+      {
+        name: 'MySQL',
+        level: 85,
+        icon: SiMysql,
+        color: 'from-primary-500 to-primary-600',
+        description: 'Modelagem e otimização de bancos de dados relacionais com MySQL',
+      },
+    ],
   },
-  {
-    name: 'Node.js',
-    level: 85,
-    icon: SiNodedotjs,
-    color: 'from-secondary-500 to-secondary-600',
+  cloud: {
+    name: 'Cloud & DevOps',
+    skills: [
+      {
+        name: 'Google Cloud',
+        level: 80,
+        icon: SiGooglecloud,
+        color: 'from-secondary-500 to-secondary-600',
+        description: 'Gerenciamento de infraestrutura e serviços na nuvem com Google Cloud',
+      },
+      {
+        name: 'MongoDB',
+        level: 80,
+        icon: SiMongodb,
+        color: 'from-secondary-600 to-secondary-700',
+        description: 'Trabalho com bancos de dados NoSQL e MongoDB',
+      },
+      {
+        name: 'BigQuery',
+        level: 75,
+        icon: SiJquery,
+        color: 'from-primary-400 to-primary-500',
+        description: 'Análise de dados e consultas em larga escala com BigQuery',
+      },
+    ],
   },
-  {
-    name: 'MySQL',
-    level: 85,
-    icon: SiMysql,
-    color: 'from-primary-500 to-primary-600',
-  },
-  {
-    name: 'Google Cloud',
-    level: 80,
-    icon: SiGooglecloud,
-    color: 'from-secondary-500 to-secondary-600',
-  },
-  {
-    name: 'MongoDB',
-    level: 80,
-    icon: SiMongodb,
-    color: 'from-secondary-600 to-secondary-700',
-  },
-  {
-    name: 'BigQuery',
-    level: 75,
-    icon: SiJquery,
-    color: 'from-primary-400 to-primary-500',
-  },
-];
+};
 
 export default function Skills() {
+  const [activeCategory, setActiveCategory] = useState('frontend');
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-6">
@@ -75,14 +101,34 @@ export default function Skills() {
             Habilidades & Ferramentas
           </h2>
 
+          {/* Category Tabs */}
+          <div className="flex justify-center gap-4 mb-12">
+            {Object.entries(skillCategories).map(([key, category]) => (
+              <button
+                key={key}
+                onClick={() => setActiveCategory(key)}
+                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                  activeCategory === key
+                    ? 'bg-primary-600 text-white shadow-lg'
+                    : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+
           <div className="grid gap-8">
-            {skills.map((skill, index) => (
+            {skillCategories[activeCategory as keyof typeof skillCategories].skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="relative"
+                onMouseEnter={() => setHoveredSkill(skill.name)}
+                onMouseLeave={() => setHoveredSkill(null)}
               >
                 <div className="flex items-center gap-4 mb-2">
                   <span className="text-2xl">
@@ -102,6 +148,18 @@ export default function Skills() {
                     viewport={{ once: true }}
                   />
                 </div>
+
+                {/* Tooltip */}
+                {hoveredSkill === skill.name && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute z-10 p-3 bg-gray-900 text-white text-sm rounded-lg shadow-lg -top-2 left-full ml-4 w-64"
+                  >
+                    {skill.description}
+                    <div className="absolute -left-2 top-4 w-4 h-4 bg-gray-900 transform rotate-45" />
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -126,7 +184,7 @@ export default function Skills() {
               ].map((tool) => (
                 <span
                   key={tool}
-                  className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm font-medium"
+                  className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
                 >
                   {tool}
                 </span>
