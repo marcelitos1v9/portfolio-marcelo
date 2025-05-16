@@ -8,7 +8,7 @@ const projects = [
   {
     title: 'E-commerce Next.js',
     description: 'Plataforma de e-commerce completa com Next.js, TypeScript e Stripe.',
-    image: '/projects/ecommerce.jpg',
+    image: '/marcelo/ecommerce.jpg',
     tags: ['Next.js', 'TypeScript', 'Stripe', 'TailwindCSS'],
     demoUrl: 'https://demo.com',
     githubUrl: 'https://github.com',
@@ -16,7 +16,7 @@ const projects = [
   {
     title: 'Blog com Headless CMS',
     description: 'Blog moderno usando Next.js, GraphQL e Hygraph CMS.',
-    image: '/projects/blog.jpg',
+    image: '/marcelo/blog.jpg',
     tags: ['Next.js', 'GraphQL', 'Hygraph', 'MDX'],
     demoUrl: 'https://demo.com',
     githubUrl: 'https://github.com',
@@ -24,7 +24,7 @@ const projects = [
   {
     title: 'Dashboard Analytics',
     description: 'Dashboard interativo com gráficos e análise de dados em tempo real.',
-    image: '/projects/dashboard.jpg',
+    image: '/marcelo/dashboard.jpg',
     tags: ['React', 'D3.js', 'WebSocket', 'Redux'],
     demoUrl: 'https://demo.com',
     githubUrl: 'https://github.com',

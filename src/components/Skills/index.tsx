@@ -8,7 +8,11 @@ import {
   SiNodedotjs, 
   SiTailwindcss, 
   SiMongodb,
-  SiDocker
+  SiDocker,
+  SiAmazon,
+  SiGooglecloud,
+  SiJquery,
+  SiMysql
 } from 'react-icons/si';
 
 const skills = [
@@ -31,10 +35,16 @@ const skills = [
     color: 'from-secondary-500 to-secondary-600',
   },
   {
-    name: 'TailwindCSS',
-    level: 90,
-    icon: SiTailwindcss,
-    color: 'from-primary-400 to-primary-500',
+    name: 'MySQL',
+    level: 85,
+    icon: SiMysql,
+    color: 'from-primary-500 to-primary-600',
+  },
+  {
+    name: 'Google Cloud',
+    level: 80,
+    icon: SiGooglecloud,
+    color: 'from-secondary-500 to-secondary-600',
   },
   {
     name: 'MongoDB',
@@ -43,10 +53,10 @@ const skills = [
     color: 'from-secondary-600 to-secondary-700',
   },
   {
-    name: 'Docker',
+    name: 'BigQuery',
     level: 75,
-    icon: SiDocker,
-    color: 'from-primary-300 to-primary-400',
+    icon: SiJquery,
+    color: 'from-primary-400 to-primary-500',
   },
 ];
 
@@ -112,7 +122,6 @@ export default function Skills() {
                 'Figma',
                 'Jest',
                 'Cypress',
-                'AWS',
                 'Vercel',
               ].map((tool) => (
                 <span

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description: "Portfólio pessoal com projetos em React, Next.js, Node.js e mais.",
   keywords: ["Next.js", "React", "JavaScript", "TypeScript", "Web Development"],
   authors: [{ name: "Seu Nome" }],
+  metadataBase: new URL("https://seusite.com"),
   openGraph: {
     type: "website",
     locale: "pt_BR",

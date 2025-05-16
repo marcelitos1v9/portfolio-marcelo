@@ -6,21 +6,21 @@ import Image from 'next/image';
 const timeline = [
   {
     year: '2024',
-    title: 'Desenvolvedor Full Stack Senior',
-    company: 'Empresa Atual',
-    description: 'Liderança técnica em projetos usando React, Next.js e Node.js.',
+    title: 'Estagiário em Engenharia de Dados',
+    company: 'Compass UOL',
+    description: 'Início da jornada profissional em engenharia de dados, aprendendo sobre AWS, Google Cloud e soluções baseadas em nuvem.',
   },
   {
-    year: '2022',
-    title: 'Desenvolvedor Full Stack Pleno',
-    company: 'Empresa Anterior',
-    description: 'Desenvolvimento de aplicações web com foco em performance e SEO.',
+    year: '2025',
+    title: 'Trainee em Engenharia de Dados',
+    company: 'Compass UOL',
+    description: 'Evolução para trainee, com foco em BigQuery e Dataform, trabalhando em projetos de dados e inteligência artificial.',
   },
   {
-    year: '2020',
-    title: 'Desenvolvedor Front-end Junior',
-    company: 'Primeira Empresa',
-    description: 'Início da carreira com React e TypeScript.',
+    year: '2025',
+    title: 'Engenheiro de Dados Júnior',
+    company: 'Compass UOL',
+    description: 'Promoção para engenheiro de dados júnior, com foco em BigQuery e Dataform, entregando soluções eficientes e escaláveis em projetos de dados e IA.',
   },
 ];
 
@@ -65,9 +65,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="text-lg text-gray-600 dark:text-gray-300 mb-6"
               >
-                Sou um desenvolvedor Full Stack apaixonado por criar experiências digitais
-                excepcionais. Com mais de 4 anos de experiência, especializo-me em
-                React, Next.js, Node.js e TypeScript.
+                Sou engenheiro de dados na Compass UOL, certificado pela AWS e com experiência em soluções baseadas em nuvem. Atualmente trabalho com Google Cloud Platform, com foco em BigQuery e Dataform. Tenho atuado em projetos de dados e inteligência artificial, sempre buscando entregar soluções eficientes e escaláveis.
               </motion.p>
 
               <motion.div
@@ -77,7 +75,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="grid grid-cols-2 md:grid-cols-3 gap-4"
               >
-                {['React', 'Next.js', 'Node.js', 'TypeScript', 'TailwindCSS', 'MongoDB'].map(
+                {['AWS', 'Google Cloud', 'BigQuery', 'Dataform', 'Next.js', 'MongoDB','MYSQL','TailwindCSS', 'React', 'Node.js', 'TypeScript'].map(
                   (skill) => (
                     <span
                       key={skill}
