@@ -39,6 +39,8 @@ module.exports = {
       animation: {
         'gradient': 'gradient 15s ease infinite',
         'gradient-delayed': 'gradient 15s ease infinite 7.5s',
+        'spin-slow': 'spin 3s linear infinite',
+        'spin-slow-reverse': 'spin-reverse 3s linear infinite',
       },
       keyframes: {
         gradient: {
@@ -50,6 +52,10 @@ module.exports = {
             'background-size': '200% 200%',
             'background-position': 'right center',
           },
+        },
+        'spin-reverse': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
         },
       },
     },

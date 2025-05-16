@@ -55,7 +55,7 @@ export default function Footer() {
             className="text-center"
           >
             <p className="text-gray-600 dark:text-gray-400">
-              © {new Date().getFullYear()} Seu Nome. Todos os direitos reservados.
+              © {new Date().getFullYear()} Marcelo Augusto. Todos os direitos reservados.
             </p>
             
           </motion.div>
